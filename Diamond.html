@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiny Diamond</title>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #15616d;
+        }
+        .diacon{
+            position: relative;
+        }
+        .diamond{
+            position: relative;
+            left: -100px;
+            top: -50px;
+            filter: drop-shadow(0 0 100px white);
+        }
+        .diatop{
+            position: relative;
+        }
+        .diatop::before, .diatop::after{
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            top: 0;
+        }
+        .diatop::before{
+            border-color: transparent transparent #b4e3e6 transparent;
+            border-width: 0 25px 30px 25px;
+            filter: drop-shadow(50px 0 #94d7d9) drop-shadow(50px 0 #b4e3e6);
+        }
+        .diatop::after{
+            border-color: #d8f8f9 transparent transparent transparent;
+            border-width: 30px 25px 0 25px;
+            left: 25px;
+            filter: drop-shadow(50px 0 #d8f8f9);
+        }
+        .diabottom, .diabottom::before{
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+        .diabottom{
+            left: 0;
+            top: 30px;
+            border-color: #70ced4 transparent transparent transparent;
+            border-width: 100px 75px 0 75px;
+        }
+
+        .diabottom::before{
+            content: "";
+            border-color: #b4e3e6 transparent transparent transparent;
+            border-width: 100px 25px 0 25px;
+            top: -100px;
+            left: -25px;
+        }
+        .diabottom::after{
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            width: 100px;
+            height: 10px;
+            background-color: #b4e3e6;
+            top: -135px;
+            left: -50px;
+        }
+        .sparkles{
+            z-index: 2;
+            position: absolute;
+        }
+        .one, .two{
+            color: transparent;
+            position: absolute;
+        }
+        .one{
+            font-size: 40px;
+            text-shadow: 0 0 white, -115px -75px white;
+            animation: shine .7s linear infinite;
+        }
+        .two{
+            font-size: 25px;
+            left: -65px;
+            top: 45px;
+            text-shadow: 0 0 white, 55px -115px white;
+            animation: shine .7s linear infinite .25s;
+        }
+        @keyframes shine {
+            from{opacity: 1;}
+            to{opacity: 0;}
+        }
+    </style>
+</head>
+<body>
+    <div class="diacon">
+        <div class="diamond">
+            <div class="diatop"></div>
+            <div class="diabottom"></div>
+        </div>
+        <div class="sparkles">
+            <div class="one">✨</div>
+            <div class="two">✨</div>
+        </div>
+    </div>
+</body>
+</html>
